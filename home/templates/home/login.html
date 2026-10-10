@@ -1,0 +1,27 @@
+{% extends 'home/theme.html' %}
+{% block title %}Netflix-Login{% endblock %}
+{% block extra_css %}
+    <style>
+    nav h1 {
+        margin-top: 200px;
+    }
+    </style>
+{% endblock %}
+{% block content %}
+    
+    <div class="login">
+    <form method="POST">
+        {% csrf_token %}
+        
+        <input type="text" name="username" placeholder="username" id="username">
+        <br>
+        <input type="password" name="password" placeholder="password" id="password">
+        <br>
+        <button type="submit" id="button" >Sign In</button>
+        {% if error %}
+            <p style="color: red;padding-top: 10px;">{{ error }}</p>
+        {% endif %}    
+    </form>
+    </div>
+    
+{% endblock %}    

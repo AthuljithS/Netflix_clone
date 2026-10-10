@@ -1,0 +1,23 @@
+{% extends 'home/theme.html' %}
+
+{% block title %}Netflix-Home {% endblock %}
+
+
+{% block content%}
+
+<div class="movies-grid">
+    {% for movie in movies %}
+    <div class="card">
+        <img src="{{ movie.image }}" alt="{{ movie.title }}">
+        <div class="card-info">
+            <h3>{{ movie.title }}</h3>
+            <p>{{ movie.genre }} • {{ movie.year }}</p>
+            <p class="rating">⭐ {{ movie.rating }}</p>
+            <p class="description">{{ movie.description }}</p>
+        </div>
+    </div>
+    {% empty %}
+        <p>No movies yet!</p>
+    {% endfor %}    
+</div>
+{% endblock %}
